@@ -16,6 +16,7 @@ public void startGame()
         newField(); //Method for generating a random minefield
 
         boolean flag = true;
+    
         while(flag)
         {
             displayVisibleMatrix();
