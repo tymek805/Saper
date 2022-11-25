@@ -32,8 +32,8 @@ public class Minesweeper {
     }
 }
 
-//public void newField()
-//public void displayVisibleMatrix()
-//public void playerTurn()
-//public void checkWin()
-//public void displayHiddenMatrix ()
+//TODO public void newField()
+//TODO public void displayVisibleMatrix()
+//TODO public void playerTurn()
+//TODO public void checkWin()
+//TODO public void displayHiddenMatrix ()
