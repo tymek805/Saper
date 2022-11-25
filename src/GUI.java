@@ -1,5 +1,5 @@
-// Zespol:
-// Wojciech Krzos ?
+// Zespół:
+// Wojciech Krzos
 // Filip Kubecki
 // Tymoteusz Lango
 
