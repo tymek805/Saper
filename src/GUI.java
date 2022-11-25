@@ -1,7 +1,7 @@
-// Zespół:
-// Wojciech Krzos
-// Filip Kubecki
-// Tymoteusz Lango
+// Zespół: 
+// Wojciech Krzos <3
+// Filip Kubecki <3
+// Tymoteusz Lango <3
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
