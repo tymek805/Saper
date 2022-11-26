@@ -51,13 +51,13 @@ public class MineFieldSettings extends JPanel {
    public void newGame() {
       // Get a new mine map
       MinesLocation mineMap = new MinesLocation();
-      mineMap.newMineMap(numMines);
+      mineMap.newMineField(numMines);
 
       // Reset cells, mines, and flags
       for (int row = 0; row < ROWS; row++) {
          for (int col = 0; col < COLS; col++) {
             // Initialize each cell with/without mine
-            cells[row][col].newGame(mineMap.isMined[row][col]);
+            cells[row][col].newGame(mineMap.isMine[row][col]);
          }
       }
    }
