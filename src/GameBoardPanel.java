@@ -70,7 +70,7 @@ public class GameBoardPanel extends JPanel {
          for (int col = srcCol - 1; col <= srcCol + 1; col++) {
             // Need to ensure valid row and column numbers too
             if (row >= 0 && row < ROWS && col >= 0 && col < COLS) {
-               if (cells[row][col].isMined) numMines++;
+               if (cells[row][col].isMine) numMines++;
             }
          }
       }
@@ -109,18 +109,18 @@ public class GameBoardPanel extends JPanel {
       public void mouseClicked(MouseEvent e) {         // Get the source object that fired the Event
          Cell sourceCell = (Cell)e.getSource();
          // For debugging
-         System.out.println("You clicked on (" + sourceCell.row + "," + sourceCell.col + ")");
+         System.out.println("You clicked on (" + sourceCell.rows + "," + sourceCell.columns + ")");
 
          // Left-click to reveal a cell; Right-click to plant/remove the flag.
          if (e.getButton() == MouseEvent.BUTTON1) {  // Left-button clicked
             // [TODO 5]
             // if you hit a mine, game over
             // else reveal this cell
-            if (sourceCell.isMined) {
+            if (sourceCell.isMine) {
                System.out.println("Game Over");
                sourceCell.setText("*");
             } else {
-               revealCell(sourceCell.row, sourceCell.col);
+               revealCell(sourceCell.rows, sourceCell.columns);
             }
          } else if (e.getButton() == MouseEvent.BUTTON3) { // right-button clicked
             // [TODO 6]
