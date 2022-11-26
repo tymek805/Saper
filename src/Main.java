@@ -1,13 +1,7 @@
-import java.awt.*;        // Use AWT's Layout Manager
+import java.awt.*;        //awt layout manager
 import java.awt.event.*;
-import javax.swing.*;     // Use Swing's Containers and Components
-/**
- * The Mine Sweeper Game.
- * Left-click to reveal a cell.
- * Right-click to plant/remove a flag for marking a suspected mine.
- * You win if all the cells not containing mines are revealed.
- * You lose if you reveal a cell containing a mine.
- */
+import javax.swing.*;     //swing containers and components
+
 public class Main extends JFrame {
    private static final long serialVersionUID = 1L;  // to prevent serial warning
 
