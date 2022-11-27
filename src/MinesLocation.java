@@ -3,7 +3,7 @@
 public class MinesLocation {
    
    int numMines;
-   boolean[][] isMine = new boolean[MineFieldSettings.ROWS][MineFieldSettings.COLS];
+   boolean[][] isMine = new boolean[MineFieldSettings.rows][MineFieldSettings.columns];
 
    public MinesLocation() {
       super(); //Create blank object

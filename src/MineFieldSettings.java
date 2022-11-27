@@ -6,27 +6,27 @@ public class MineFieldSettings extends JPanel {
    private static final long serialVersionUID = 1L;  // to prevent serial warning
 
    // Define named constants for the game properties
-   public static final int ROWS = 10;      // number of cells
-   public static final int COLS = 10;
+   public static final int rows = 15;      // number of cells
+   public static final int columns = 15;
 
    // Define named constants for UI sizes
-   public static final int CELL_SIZE = 60;  // Cell width and height, in pixels
-   public static final int CANVAS_WIDTH  = CELL_SIZE * COLS; // Game board width/height
-   public static final int CANVAS_HEIGHT = CELL_SIZE * ROWS;
+   public static final int cellSize = 60;  // Cell width and height, in pixels
+   public static final int CANVAS_WIDTH  = cellSize * columns; // Game board width/height
+   public static final int CANVAS_HEIGHT = cellSize * rows;
 
    // Define properties (package-visible)
    /** The game board composes of ROWSxCOLS cells */
-   CellSettings cells[][] = new CellSettings[ROWS][COLS];
+   CellSettings cells[][] = new CellSettings[rows][columns];
    /** Number of mines */
    int numMines = 10;
 
    /** Constructor */
    public MineFieldSettings() {
-      super.setLayout(new GridLayout(ROWS, COLS, 2, 2));  // JPanel
+      super.setLayout(new GridLayout(rows, columns, 2, 2));  // JPanel
 
       // Allocate the 2D array of Cell, and added into content-pane.
-      for (int row = 0; row < ROWS; ++row) {
-         for (int col = 0; col < COLS; ++col) {
+      for (int row = 0; row < rows; ++row) {
+         for (int col = 0; col < columns; ++col) {
             cells[row][col] = new CellSettings(row, col);
             super.add(cells[row][col]);
          }
@@ -36,8 +36,8 @@ public class MineFieldSettings extends JPanel {
       //  Cells (JButtons)
       CellMouseListener listener = new CellMouseListener();
       // [TODO 4] Every cell adds this common listener
-      for (int row = 0; row < ROWS; ++row) {
-       for (int col = 0; col < COLS; ++col) {
+      for (int row = 0; row < rows; ++row) {
+       for (int col = 0; col < columns; ++col) {
           cells[row][col].addMouseListener(listener);   // For all rows and cols
        }
       }
@@ -54,8 +54,8 @@ public class MineFieldSettings extends JPanel {
       mineMap.newMineField(numMines);
 
       // Reset cells, mines, and flags
-      for (int row = 0; row < ROWS; row++) {
-         for (int col = 0; col < COLS; col++) {
+      for (int row = 0; row < rows; row++) {
+         for (int col = 0; col < columns; col++) {
             // Initialize each cell with/without mine
             cells[row][col].newGame(mineMap.isMine[row][col]);
          }
@@ -69,7 +69,7 @@ public class MineFieldSettings extends JPanel {
       for (int row = srcRow - 1; row <= srcRow + 1; row++) {
          for (int col = srcCol - 1; col <= srcCol + 1; col++) {
             // Need to ensure valid row and column numbers too
-            if (row >= 0 && row < ROWS && col >= 0 && col < COLS) {
+            if (row >= 0 && row < rows && col >= 0 && col < columns) {
                if (cells[row][col].isMine) numMines++;
             }
          }
@@ -89,7 +89,7 @@ public class MineFieldSettings extends JPanel {
          for (int row = srcRow - 1; row <= srcRow + 1; row++) {
             for (int col = srcCol - 1; col <= srcCol + 1; col++) {
                // Need to ensure valid row and column numbers too
-               if (row >= 0 && row < ROWS && col >= 0 && col < COLS) {
+               if (row >= 0 && row < rows && col >= 0 && col < columns) {
                   if (!cells[row][col].isRevealed) revealCell(row, col);
                }
             }
