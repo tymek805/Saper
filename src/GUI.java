@@ -6,7 +6,6 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Random;
 import javax.swing.*;
 
 public class GUI implements ActionListener{
@@ -75,6 +74,35 @@ public class GUI implements ActionListener{
         frame.setLocationRelativeTo(null);
         frame.revalidate();
         frame.repaint();
+    }
+
+    /**GUI */
+    @Override
+    public void actionPerformed(ActionEvent event) {
+        for (int i = 0; i < size_x; i++) {
+            for (int j = 0; j < size_y; j++) {
+                if (event.getSource() == buttons[i][j]){
+                    if (start){
+                        GameLogic.randomBoardOfMines();
+                        // Nie działa :C
+                        while (board_of_mines[i][j]){
+                            GameLogic.randomBoardOfMines();}
+                        GameLogic.initializeBoardOfNumbers();
+                        start = false;
+                    }
+                    if (board_of_mines[i][j]){
+                        buttons[i][j].setBackground(Color.RED);
+                        GameLogic.endGame();
+                    } else {
+                        if (board_of_numbers[i][j] == 0){
+                            buttons[i][j].setBackground(Color.GRAY);
+                        }else {
+                            buttons[i][j].setText(String.valueOf(board_of_numbers[i][j]));
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
