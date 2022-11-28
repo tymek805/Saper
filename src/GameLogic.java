@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class GameLogic {
 
-    int size_x, size_y, liczba_min;
+    int size_x, size_y, min_number;
     boolean start = true;
     int[][] board_of_numbers;
     boolean[][] board_of_mines;
@@ -11,7 +11,7 @@ public class GameLogic {
     public void randomBoardOfMines(){
         Random rand = new Random();
 
-        for (int i = 0; i < liczba_min; i++){
+        for (int i = 0; i < min_number; i++){
             int n = rand.nextInt(size_x);
             int m = rand.nextInt(size_y);
             if (!board_of_mines[n][m]) {
