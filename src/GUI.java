@@ -1,12 +1,6 @@
-// Zespół: 
-// Wojciech Krzos <3
-// Filip Kubecki <3
-// Tymoteusz Lango <3
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Random;
 import javax.swing.*;
 
 public class GUI implements ActionListener{
@@ -82,58 +76,25 @@ public class GUI implements ActionListener{
         frame.repaint();
     }
 
-    private void randomBoardOfMines(){
-        Random rand = new Random();
-
-        for (int i = 0; i < liczba_min; i++){
-            int n = rand.nextInt(size_x);
-            int m = rand.nextInt(size_y);
-            if (!board_of_mines[n][m]) {
-                board_of_mines[n][m] = true;}
-            else {i--;}
-        }
-    }
-    private void howManyMines(int x, int y){
-        int suma = 0;
-        for (int k = -1; k < 2; k++) {
-            for (int q = -1; q < 2; q++) {
-                boolean test1 = k == 0 && q == 0;
-                boolean test2 = x + k < 0 || y + q < 0 || x + k == size_x || y + q == size_y;
-                if (!test1 && !test2 && board_of_mines[x + k][y + q]){
-                    suma++;
-                }
-            }
-        }
-        board_of_numbers[x][y] = suma;
-    }
-
-    private void initializeBoardOfNumbers(){
-        for (int i = 0; i < size_x; i++){
-            for (int j = 0; j < size_y; j++){
-                howManyMines(i, j);
-            }
-        }
-    }
-
-    private void endGame() {
-    }
-
     @Override
     public void actionPerformed(ActionEvent event) {
+
+        GameLogic gameLogic = new GameLogic();
+
         String[] idxSplit = event.getSource().toString().substring(21).split(",60x54")[0].strip().split(",");
         int x = (Integer.parseInt(idxSplit[1]) - 2) / 54;
         int y = (Integer.parseInt(idxSplit[0]) - 3) / 60;
         System.out.println(x + " -> " + y);
 
         if (start){
-            randomBoardOfMines();
+            gameLogic.randomBoardOfMines();
             // TODO Trzeba dodać sprawdzenie czy wartość początkowa jest miną
-            initializeBoardOfNumbers();
+            gameLogic.initializeBoardOfNumbers();
             start = false;
         }
         if (board_of_mines[x][y]){
             buttons[x][y].setBackground(Color.RED);
-            endGame();
+            gameLogic.endGame();
         } else {
             if (board_of_numbers[x][y] == 0){
                 buttons[x][y].setBackground(Color.GRAY);
