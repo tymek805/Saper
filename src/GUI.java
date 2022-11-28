@@ -146,7 +146,4 @@ public class GUI implements ActionListener{
         isFlagging = !isFlagging;
         System.out.println("Flag -> " + isFlagging);
     }
-    public static void main(String[] args){
-        GUI gui = new GUI(8, 8, 10);
-    }
 }
