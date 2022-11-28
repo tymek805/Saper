@@ -30,7 +30,7 @@ public class Main extends JFrame {
 
       pack();  // Pack the UI components, instead of setSize()
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // handle window-close button
-      setTitle("Mineswepper");
+      setTitle("MINESWEEPER");
       setVisible(true);   // show it
    }
 

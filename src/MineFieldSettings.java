@@ -6,8 +6,8 @@ public class MineFieldSettings extends JPanel {
    private static final long serialVersionUID = 1L;  // to prevent serial warning
 
    // Define named constants for the game properties
-   public static final int rows = 15;      // number of cells
-   public static final int columns = 15;
+   public static final int rows = 10;      // number of cells
+   public static final int columns = 10;
 
    // Define named constants for UI sizes
    public static final int cellSize = 60;  // Cell width and height, in pixels
