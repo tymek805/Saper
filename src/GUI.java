@@ -121,8 +121,8 @@ public class GUI implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent event) {
         String[] idxSplit = event.getSource().toString().substring(21).split(",60x54")[0].strip().split(",");
-        int x = (Integer.parseInt(idxSplit[0]) - 3) / 60;
-        int y = (Integer.parseInt(idxSplit[1]) - 2) / 54;
+        int x = (Integer.parseInt(idxSplit[1]) - 2) / 54;
+        int y = (Integer.parseInt(idxSplit[0]) - 3) / 60;
         System.out.println(x + " -> " + y);
 
         if (start){
