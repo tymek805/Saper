@@ -9,6 +9,7 @@ public class MinesLocation {
       super(); //Create blank object
    }
 
+   //TODO Create a method for generating a random mine field with range of mines between x and y
    /**Creating a new mine field (predefined as for now) */
    public void newMineField(int numMines) {
       this.numMines = numMines;

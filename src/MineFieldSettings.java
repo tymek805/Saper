@@ -11,16 +11,17 @@ public class MineFieldSettings extends JPanel {
 
    // Define named constants for UI sizes
    public static final int cellSize = 60;  // Cell width and height, in pixels
-   public static final int CANVAS_WIDTH  = cellSize * columns; // Game board width/height
-   public static final int CANVAS_HEIGHT = cellSize * rows;
+   public static final int canvasWidth  = cellSize * columns; // Game board width/height
+   public static final int canvasHeight = cellSize * rows;
 
    // Define properties (package-visible)
    /** The game board composes of ROWSxCOLS cells */
    CellSettings cells[][] = new CellSettings[rows][columns];
+
    /** Number of mines */
    int numMines = 10;
 
-   /** Constructor */
+   /** Constructor for the array*/
    public MineFieldSettings() {
       super.setLayout(new GridLayout(rows, columns, 2, 2));  // JPanel
 
@@ -44,7 +45,7 @@ public class MineFieldSettings extends JPanel {
 
       // Set the size of the content-pane and pack all the components
       //  under this container.
-      super.setPreferredSize(new Dimension(CANVAS_WIDTH, CANVAS_HEIGHT));
+      super.setPreferredSize(new Dimension(canvasWidth, canvasHeight));
    }
 
    // Initialize and re-initialize a new game
