@@ -119,6 +119,7 @@ public class GUI implements ActionListener{
                 if (event.getSource() == buttons[i][j]){
                     if (start){
                         randomBoardOfMines();
+                        // Nie działa :C
                         while (board_of_mines[i][j]){
                             randomBoardOfMines();}
                         initializeBoardOfNumbers();
@@ -128,7 +129,11 @@ public class GUI implements ActionListener{
                         buttons[i][j].setBackground(Color.RED);
                         endGame();
                     } else {
-                        buttons[i][j].setText(String.valueOf(board_of_numbers[i][j]));
+                        if (board_of_numbers[i][j] == 0){
+                            buttons[i][j].setBackground(Color.GRAY);
+                        }else {
+                            buttons[i][j].setText(String.valueOf(board_of_numbers[i][j]));
+                        }
                     }
                 }
             }
