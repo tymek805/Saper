@@ -7,7 +7,7 @@ public class Main extends JFrame {
 
    // private variables
    MineFieldSettings board = new MineFieldSettings();
-   JButton btnNewGame = new JButton("New Game");
+   JButton btnNewGame = new JButton("Again!");
 
    // Constructor to set up all the UI and game components
    public Main() {
