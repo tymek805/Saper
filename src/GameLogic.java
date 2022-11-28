@@ -2,13 +2,13 @@ import java.util.Random;
 
 public class GameLogic {
 
-    static int size_x, size_y, liczba_min;
-    static boolean start = true;
-    static int[][] board_of_numbers;
-    static boolean[][] board_of_mines;
+    int size_x, size_y, liczba_min;
+    boolean start = true;
+    int[][] board_of_numbers;
+    boolean[][] board_of_mines;
 
     /**Game logic */
-    public static void randomBoardOfMines(){
+    public void randomBoardOfMines(){
         Random rand = new Random();
 
         for (int i = 0; i < liczba_min; i++){
@@ -21,7 +21,7 @@ public class GameLogic {
     }
 
     /**Game logic */
-    public static void howManyMines(int x, int y){
+    public void howManyMines(int x, int y){
         int suma = 0;
         for (int k = -1; k < 2; k++) {
             for (int q = -1; q < 2; q++) {
@@ -36,7 +36,7 @@ public class GameLogic {
     }
 
     /**Game logic */
-    public static void initializeBoardOfNumbers(){
+    public void initializeBoardOfNumbers(){
         for (int i = 0; i < size_x; i++){
             for (int j = 0; j < size_y; j++){
                 howManyMines(i, j);
@@ -45,7 +45,7 @@ public class GameLogic {
     }
 
     /**Game logic */
-    public static void endGame() {
+    public void endGame() {
 
     }
 }
