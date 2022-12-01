@@ -1,17 +1,23 @@
 import java.util.Random;
 
-public class GameLogic {
+public class GameLogic{
+    private final int size_x, size_y, numberOfMines;
+    private final int[][] board_of_numbers;
+    private final boolean[][] board_of_mines;
 
-    int size_x, size_y, min_number;
-    boolean start = true;
-    int[][] board_of_numbers;
-    boolean[][] board_of_mines;
+    public GameLogic(int size_x, int size_y, int numberOfMines){
+        this.size_x = size_x;
+        this.size_y = size_y;
+        this.numberOfMines = numberOfMines;
 
-    /**Game logic */
+        board_of_mines = new boolean[size_x][size_y];
+        board_of_numbers = new int[size_x][size_y];
+    }
+
     public void randomBoardOfMines(){
         Random rand = new Random();
 
-        for (int i = 0; i < min_number; i++){
+        for (int i = 0; i < numberOfMines; i++){
             int n = rand.nextInt(size_x);
             int m = rand.nextInt(size_y);
             if (!board_of_mines[n][m]) {
@@ -20,7 +26,14 @@ public class GameLogic {
         }
     }
 
-    /**Game logic */
+    public void initializeBoardOfNumbers(){
+        for (int i = 0; i < size_x; i++){
+            for (int j = 0; j < size_y; j++){
+                howManyMines(i, j);
+            }
+        }
+    }
+
     public void howManyMines(int x, int y){
         int suma = 0;
         for (int k = -1; k < 2; k++) {
@@ -35,18 +48,12 @@ public class GameLogic {
         board_of_numbers[x][y] = suma;
     }
 
-    /**Game logic */
-    public void initializeBoardOfNumbers(){
-        for (int i = 0; i < size_x; i++){
-            for (int j = 0; j < size_y; j++){
-                howManyMines(i, j);
-            }
-        }
+    public int getCellValue(int x, int y) {
+        return board_of_numbers[x][y];
     }
 
-    /**Game logic */
-    public void endGame() {
-
+    public boolean getIsMine(int x, int y) {
+        return board_of_mines[x][y];
     }
 }
 
