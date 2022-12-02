@@ -7,7 +7,7 @@ public class GameLogic {
     int[][] board_of_numbers;
     boolean[][] board_of_mines;
 
-    /**Game logic */
+    /**Generate a random board of mines */
     public void randomBoardOfMines(){
         Random rand = new Random();
 
@@ -20,7 +20,7 @@ public class GameLogic {
         }
     }
 
-    /**Game logic */
+    /**Set how many mines */
     public void howManyMines(int x, int y){
         int suma = 0;
         for (int k = -1; k < 2; k++) {
@@ -35,7 +35,7 @@ public class GameLogic {
         board_of_numbers[x][y] = suma;
     }
 
-    /**Game logic */
+    /**Initialise the board of numbers */
     public void initializeBoardOfNumbers(){
         for (int i = 0; i < size_x; i++){
             for (int j = 0; j < size_y; j++){
@@ -44,7 +44,46 @@ public class GameLogic {
         }
     }
 
-    /**Game logic */
+
+    /**See how many mines surround a cell at inputRow and inputColumn */
+    private int getSurroundingMines(int inputRow, int inputColumn) {
+
+        int numMines = 0;
+
+        for (int row = inputRow - 1; row <= inputRow + 1; row++) {
+
+            for (int col = inputColumn - 1; col <= inputColumn + 1; col++) {
+
+                if (row >= 0 && row < size_x && col >= 0 && col < size_y) {
+
+                    if (board_of_numbers[row][col].isMine) numMines++;  ////TODO how to know if a cell is a mine?
+                }
+            }
+        }
+        return numMines;
+    }
+
+    /**Reveals all neigbouring cells without mines */
+    private void revealCell(int inputRow, int inputColumn) {
+
+        int numMines = getSurroundingMines(inputRow, inputColumn);
+
+        if (numMines == 0) {
+
+        for (int row = inputRow - 1; row <= inputRow + 1; row++) {
+
+            for (int col = inputColumn - 1; col <= inputColumn + 1; col++) {
+
+                if (row >= 0 && row < size_x && col >= 0 && col < size_y) {
+
+                    if (!board_of_numbers[row][col].isRevealed) revealCell(row, col); //TODO how to know if a cell is revealed?
+                }
+            }
+        }
+        }
+    }
+
+    /**Game over conditions */
     public void endGame() {
 
     }
