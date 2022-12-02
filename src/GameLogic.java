@@ -75,12 +75,14 @@ public class GameLogic{
         return numMines;
     }
 
+    //TODO Plug it into gui @tymek805
     /**Reveals all neigbouring cells without mines */
     private void revealCell(int inputRow, int inputColumn) {
 
-        //TODO Add from the method in gui which reveals cells for the loop to work
-
         int numMines = getSurroundingMines(inputRow, inputColumn);
+
+        //TODO gotta plug it into GUI to refresh cell state @tymek805
+        GUI.buttons[inputRow][inputColumn].setText(numMines + "");
 
         if (numMines == 0) {
 
@@ -90,15 +92,15 @@ public class GameLogic{
 
                 if (row >= 0 && row < size_x && col >= 0 && col < size_y) {
 
-                    if (GUI.buttons[size_x][size_y].getText().equals("")
-                    || GUI.buttons[size_x][size_y].getText().equals("1")
-                    || GUI.buttons[size_x][size_y].getText().equals("2")
-                    || GUI.buttons[size_x][size_y].getText().equals("3")
-                    || GUI.buttons[size_x][size_y].getText().equals("4")
-                    || GUI.buttons[size_x][size_y].getText().equals("5")
-                    || GUI.buttons[size_x][size_y].getText().equals("6")
-                    || GUI.buttons[size_x][size_y].getText().equals("7")
-                    || GUI.buttons[size_x][size_y].getText().equals("8")) 
+                    if (GUI.buttons[row][col].getText().equals("")
+                    || GUI.buttons[row][col].getText().equals("1")
+                    || GUI.buttons[row][col].getText().equals("2")
+                    || GUI.buttons[row][col].getText().equals("3")
+                    || GUI.buttons[row][col].getText().equals("4")
+                    || GUI.buttons[row][col].getText().equals("5")
+                    || GUI.buttons[row][col].getText().equals("6")
+                    || GUI.buttons[row][col].getText().equals("7")
+                    || GUI.buttons[row][col].getText().equals("8")) 
                     revealCell(row, col); //TODO how to know if a cell is revealed? Add more "1", "2", ... , "3"
                 }
             }
@@ -106,7 +108,7 @@ public class GameLogic{
         }
     }
 
-    /**Game over conditions */
+    /**Game over conditions */ //@Filip-Kubecki
     public void endGame() {
     }
 
