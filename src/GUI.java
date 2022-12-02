@@ -11,7 +11,7 @@ import javax.swing.*;
 public class GUI implements ActionListener {
     private JFrame frame;
     private JPanel buttonPanel, functionPanel, container;
-    private JButton[][] buttons;
+    public static JButton[][] buttons;
     private JLabel mines;
     private final int size_x, size_y;
     private int numberOfMines;
@@ -116,7 +116,6 @@ public class GUI implements ActionListener {
             } else {
                 int cellID = gameLogic.getCellValue(x, y);
                 if (cellID == 0){
-                    // TODO Dodać sprawdzanie sąsiadujących czy są puste
                     currentButton.setBackground(Color.GRAY);
                 }else {
                     currentButton.setText(String.valueOf(cellID));
