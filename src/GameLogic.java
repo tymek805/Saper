@@ -54,18 +54,12 @@ public class GameLogic{
 
     /**See how many mines surround a cell at inputRow and inputColumn */
     private int getSurroundingMines(int inputRow, int inputColumn) {
-
         int numMines = 0;
-
         for (int row = inputRow - 1; row <= inputRow + 1; row++) {
-
             for (int col = inputColumn - 1; col <= inputColumn + 1; col++) {
-
                 if (row >= 0 && row < size_x && col >= 0 && col < size_y) {
-
                     boolean m; //TODO Does it work with the if loop below?
                     m = getIsMine(row, col);
-
                     if(m = true) {
                         numMines++;
                     } 
@@ -78,20 +72,13 @@ public class GameLogic{
     //TODO Plug it into gui @tymek805
     /**Reveals all neigbouring cells without mines */
     private void revealCell(int inputRow, int inputColumn) {
-
         int numMines = getSurroundingMines(inputRow, inputColumn);
-
         //TODO gotta plug it into GUI to refresh cell state @tymek805
         GUI.buttons[inputRow][inputColumn].setText(numMines + "");
-
         if (numMines == 0) {
-
         for (int row = inputRow - 1; row <= inputRow + 1; row++) {
-
             for (int col = inputColumn - 1; col <= inputColumn + 1; col++) {
-
                 if (row >= 0 && row < size_x && col >= 0 && col < size_y) {
-
                     if (GUI.buttons[row][col].getText().equals("")
                     || GUI.buttons[row][col].getText().equals("1")
                     || GUI.buttons[row][col].getText().equals("2")
